@@ -82,7 +82,7 @@ window.addEventListener('message', (e) => {
     if (!msg || msg.type !== 'ECO_status_update') return;
     const p = msg.payload || {};
     if (typeof p.points === 'number') statusData.points = p.points;
-    if (typeof p.level !== 'undefined') statusData.level = p.level ? `Lv. ${p.level}` : statusData.level;
+    if (typeof p.level !== 'undefined') statusData.level = p.level ? `Lv. ${parsed.level}` : statusData.level;
     if (typeof p.progressPercent === 'number') statusData.progress = Math.round(p.progressPercent);
     updateStatusCard();
   } catch (err) {
@@ -167,11 +167,14 @@ function switchPage(pageName) {
 window.addEventListener('badgeStateChange', refreshBadgeIframe);
 
 window.addEventListener('DOMContentLoaded', () => {
+  // 💡 ログインチェックの強制リダイレクトを一時的に無効化しました
+  /*
   const currentUser = localStorage.getItem('currentUser') || sessionStorage.getItem('currentUser');
   if (!currentUser) {
     location.href = '../全体/ログイン機能/signin.html';
     return;
   }
+  */
 
   updateStatusCard();
 
