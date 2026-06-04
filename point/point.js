@@ -294,10 +294,13 @@ function undoMission(idx) {
 
 window.addEventListener('DOMContentLoaded', () => {
 
+  // 💡 スマホ・ブラウザでの強制移動トラップを一時無効化しました
+  /*
   if (!currentUser) {
     location.href = '../全体/ログイン機能/signin.html';
     return;
   }
+  */
 
   if (window.UsernameDisplay) {
     window.UsernameDisplay.renderAll();
